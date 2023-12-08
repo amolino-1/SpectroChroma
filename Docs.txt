@@ -1,0 +1,24 @@
+# sRGB
+The term "D65/2°" associated with the sRGB color space in the context of the website you mentioned refers to two specific aspects of color space conversion:
+
+D65: This refers to the illuminant used in the color conversion. In colorimetry, an illuminant is a theoretical source of visible light with a profile (spectral power distribution) that defines what is considered "white" light under specific conditions. D65 is one of the standard illuminants defined by the International Commission on Illumination (CIE) and is intended to represent average daylight with a correlated color temperature of approximately 6500K (Kelvin). It's a common reference white point in many color spaces, including sRGB.
+
+2°: This indicates the observer angle used in the color model. The CIE defines two standard observer models based on the average human color perception: the 2-degree and the 10-degree observer. The 2-degree observer is based on the color matching experiments conducted in the 1930s, where observers were asked to match colors using a small, 2-degree field of view. This model is considered representative of the central part of the human eye's retina, where color vision is most acute. The 10-degree observer, introduced later, is used for wider field of view color matching.
+
+When you see "D65/2°" in color space notation, it signifies that the color values are calculated or adjusted based on the D65 light source (or white point) and the color perception characteristics of the 2-degree observer. This standard is important for ensuring consistency and accuracy in color representation across different devices and lighting conditions.
+
+
+# HSL
+The value "222.07°" in the HSL color space description refers to the Hue component, represented as an angle in degrees on the color wheel. The HSL (Hue, Saturation, Lightness) color model represents colors in a cylindrical-coordinate system.
+
+Hue (H): This is the color type, represented as an angle on the color wheel. The hue value is typically given in degrees, ranging from 0° to 360°. Each degree corresponds to a color. For example, 0° or 360° is red, 120° is green, and 240° is blue. In your case, 222.07° represents a hue that is somewhere in the blue spectrum.
+
+Saturation (S): This is the intensity or purity of the color and is represented as a percentage (from 0% to 100%) or a value from 0 to 1. A saturation of 0 means the color is a shade of gray, and a saturation of 1 means the color is as pure or intense as possible at that hue.
+
+Lightness (L): This is the lightness or darkness of the color, also represented as a percentage from 0% (black) to 100% (white), or a value from 0 to 1.
+
+So, in the HSL representation "HSL 0-1.0 = 0.61686 0.85200 0.50814 222.07°", the values can be interpreted as:
+
+Hue = 222.07° (a color tone in the blue spectrum)
+Saturation = 0.85200 (or 85.2%, indicating a high level of color intensity)
+Lightness = 0.50814 (or 50.8%, indicating a brightness level that's halfway between black and white)
