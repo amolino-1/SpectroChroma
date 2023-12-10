@@ -1,4 +1,5 @@
 import numpy as np
+import argparse
 from spectral_operations import read_spectral_data, normalize_yaxis
 from color_matching import (
     color_match_function_X,
@@ -8,6 +9,29 @@ from color_matching import (
 
 # Unicode characters
 degree_symbol = "\u00B0"
+
+
+def loadSpec():
+    # Initialize parser
+    parser = argparse.ArgumentParser()
+
+    # Adding optional argument
+    parser.add_argument(
+        "-S",  # Argument flag (short)
+        "--spectrumFile",  # Argument flag (long)
+        type=argparse.FileType("r"),  # File type
+        required=True,  # Required argument
+        help="Input path to spectrum file",  # Help description
+        metavar="\b",  # Remove space before help
+    )
+
+    # Read arguments from command line and return them
+    return parser.parse_args()
+
+
+# Call the function and use the returned values
+args = loadSpec()
+spectrumFile = args.spectrumFile
 
 
 # Function to calculate XYZ values using NumPy
@@ -238,14 +262,12 @@ def rgb_to_hex(R, G, B):
 # Main function
 def main():
     # Read and print the program header
-    with open('header.txt', 'r') as file:
+    with open("header.txt", "r") as file:
         header = file.read()
     print(header)
 
-    # Read the spectral data from the CSV file
-    file_path = "test_data.csv"
-
-    wavelengths, intensities = read_spectral_data(file_path)
+    # Calculate the XYZ values
+    wavelengths, intensities = read_spectral_data(spectrumFile)
     # Normalize the intensity values
     normalized_intensities = normalize_yaxis(intensities)
     # Calculate the XYZ values
