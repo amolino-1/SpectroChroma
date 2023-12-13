@@ -1,3 +1,4 @@
+import os
 import numpy as np
 import argparse
 from spectral_operations import read_spectral_data, normalize_yaxis
@@ -19,9 +20,9 @@ def loadSpec():
     parser.add_argument(
         "-S",  # Argument flag (short)
         "--spectrumFile",  # Argument flag (long)
-        type=argparse.FileType("r"),  # File type
+        type=str,  # Accept both files and paths
         required=True,  # Required argument
-        help="Input path to spectrum file",  # Help description
+        help="Input spectrum file or path to spectrum file",  # Help description
         metavar="\b",  # Remove space before help
     )
 
@@ -261,8 +262,14 @@ def rgb_to_hex(R, G, B):
 
 # Main function
 def main():
+    # Determine the directory of the script
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # Construct the path to 'header.txt' relative to the script's directory
+    header_path = os.path.join(script_dir, 'header.txt')
+
     # Read and print the program header
-    with open("header.txt", "r") as file:
+    with open(header_path, 'r') as file:
         header = file.read()
     print(header)
 
