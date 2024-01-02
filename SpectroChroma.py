@@ -1,15 +1,16 @@
-import os
-import numpy as np
 import argparse
-from spectral_operations import read_spectral_data, normalize_yaxis
+import os
+
+import numpy as np
 from color_matching import (
     color_match_function_X,
     color_match_function_Y,
     color_match_function_Z,
 )
+from spectral_operations import normalize_yaxis, read_spectral_data
 
 # Unicode characters
-degree_symbol = "\u00B0"
+DEGREE_SYMBOL = "\u00B0"
 
 
 def loadSpec():
@@ -266,10 +267,10 @@ def main():
     script_dir = os.path.dirname(os.path.abspath(__file__))
 
     # Construct the path to 'header.txt' relative to the script's directory
-    header_path = os.path.join(script_dir, 'header.txt')
+    header_path = os.path.join(script_dir, "header.txt")
 
     # Read and print the program header
-    with open(header_path, 'r') as file:
+    with open(header_path, "r") as file:
         header = file.read()
     print(header)
 
@@ -286,11 +287,11 @@ def main():
     hex_color = rgb_to_hex(int(sRGB[0]), int(sRGB[1]), int(sRGB[2]))
     # Output the results
     print(
-        f"XYZ Color Space D65/2{degree_symbol}\n\tX = {X:.4f}\n\tY = {Y:.4f}\n\tZ = {Z:.4f}\n"
+        f"XYZ Color Space D65/2{DEGREE_SYMBOL}\n\tX = {X:.4f}\n\tY = {Y:.4f}\n\tZ = {Z:.4f}\n"
     )
     print(f"Yxy Color Space\n\tY = {Y_yxy:.4f}\n\tx = {x:.4f}\n\ty = {y:.4f}\n")
     print(
-        f"sRGB Color Space [0-255] D65/2{degree_symbol}\n\tR = {sRGB[0]:.4f}\n\tG = {sRGB[1]:.4f}\n\tB = {sRGB[2]:.4f}\n"
+        f"sRGB Color Space [0-255] D65/2{DEGREE_SYMBOL}\n\tR = {sRGB[0]:.4f}\n\tG = {sRGB[1]:.4f}\n\tB = {sRGB[2]:.4f}\n"
     )
     print(
         f"HSL Color Space [0-1]\n\tH = {H:.4f} ({H_deg:.2f}°)\n\tS = {S:.4f}\n\tL = {L:.4f}\n"
